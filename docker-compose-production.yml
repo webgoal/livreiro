@@ -1,0 +1,18 @@
+version: '2'
+services:
+  nginx:
+    build: ./nginx/prod
+    ports:
+      - 80:80
+    depends_on:
+      - web
+  db:
+    image: postgres
+    env_file: .env.production
+  web:
+    image: webgoal/livreiro
+    restart: always
+    command: bundle exec unicorn_rails -c config/unicorn.rb
+    env_file: .env.production
+    depends_on:
+      - db
