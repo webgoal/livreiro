@@ -4,7 +4,7 @@ upstream rails {
 
 server {
   listen 80;
-  server_name livreiro.net;
+  server_name livreiro.atelie.software;
 
   location / {
     autoindex on;
