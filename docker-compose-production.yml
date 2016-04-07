@@ -2,6 +2,7 @@ version: '2'
 services:
   nginx:
     build: ./nginx/prod
+    restart: always
     ports:
       - 80:80
     depends_on:
@@ -11,7 +12,6 @@ services:
     env_file: .env.production
   web:
     image: webgoal/livreiro
-    restart: always
     command: bundle exec unicorn_rails -c config/unicorn.rb
     env_file: .env.production
     depends_on:
