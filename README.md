@@ -5,15 +5,62 @@ livreiro
 
 Desenvolvimento
 ---------------
-Instale:
+### Instale:
 
   - Linux
-    - [docker]()
-    - [docker-compose]()
-    - [docker-machine]()
-Rodar o servidor
+    - [virtualbox](https://www.virtualbox.org/)
+    - [docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+    - [docker-compose](https://docs.docker.com/compose/install/)
+    - [docker-machine](https://docs.docker.com/machine/install-machine/)
+
+  - Mac / Windows
+    - [docker-toolbox](https://www.docker.com/products/docker-toolbox)
+
+Com o docker-machine, crie uma VM local e aponte seu docker para ela:
+
+```sh
+docker-machine create default --driver virtualbox
+eval $(docker-machine env default)
+```
+
+### Executando a aplicação em desenvolvimento
+
+```sh
+  docker-compose up
+```
+
+### Instalando novas gems
+
+Adicione a gem necessária no Gemfile e faça o build da imagem novamente
+
+```sh
+docker-compose build
+docker-compose up
+```
+
+### Executando testes
+Quaisquer outras tarefas administrativas como:
+  - migrations
+  - generators
+  - console
+  - seeds
+  - rake
+
+Também podem ser executadas dessa mesma maneira
+```sh
+docker-compose run web rake spec
+```
 
 
+#### Modo desacoplado (detached)
+
+```sh
+docker-compose up -d
+```
+Visualizando os logs. Caso não informar nenhuma imagem, ele exibirá os logs de todos os containers
+```sh
+docker-compose [imagem] logs
+```
 
 Deploy
 ------
