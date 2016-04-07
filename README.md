@@ -3,6 +3,18 @@ livreiro
 
 [![Build Status](https://drone.io/github.com/webgoal/livreiro/status.png)](https://drone.io/github.com/webgoal/livreiro/latest)
 
+Desenvolvimento
+---------------
+Instale:
+
+  - Linux
+    - [docker]()
+    - [docker-compose]()
+    - [docker-machine]()
+Rodar o servidor
+
+
+
 Deploy
 ------
 
