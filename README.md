@@ -17,16 +17,28 @@ Desenvolvimento
 
   - Mac / Windows
     - [docker-toolbox](https://www.docker.com/products/docker-toolbox)
+### Executando a aplicação em desenvolvimento
 
-Com o docker-machine, crie uma VM local e aponte seu docker para ela:
+#### Linux
+Simplesmente vá para o passo `Subindo os containers`
+
+#### Mac / Windows
+Com o docker-machine, crie uma VM local:
 
 ```sh
 docker-machine create default --driver virtualbox
-eval $(docker-machine env default)
 ```
 
-### Executando a aplicação em desenvolvimento
+Caso já tenha a VM `default`, apenas certifique-se que ela esteja atualizada e em execução:
+```sh
+docker-machine start default
+docker-machine upgrade default
+```
 
+Faça o seu docker (client) apontar para o docker (server):
+```sh
+eval $(docker-machine env default)
+```
 
 ##### Subindo os containers
 ```sh
