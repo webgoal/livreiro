@@ -98,7 +98,7 @@ Quaisquer outras tarefas administrativas como:
   - generators
   - console
   - seeds
-  - rake
+  - rake tasks
 
 Também podem ser executadas dessa mesma maneira
 
