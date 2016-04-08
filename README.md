@@ -82,6 +82,17 @@ docker-compose up
 ```
 
 #### Executando testes
+
+##### Primeira vez
+
+```sh
+RAILS_ENV=test docker-compose run web rake db:create
+```
+##### E então
+```sh
+docker-compose run web rake spec
+```
+
 Quaisquer outras tarefas administrativas como:
   - migrations
   - generators
@@ -90,9 +101,6 @@ Quaisquer outras tarefas administrativas como:
   - rake
 
 Também podem ser executadas dessa mesma maneira
-```sh
-docker-compose run web rake spec
-```
 
 Deploy
 ------
