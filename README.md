@@ -17,6 +17,7 @@ Desenvolvimento
 
   - Mac / Windows
     - [docker-toolbox](https://www.docker.com/products/docker-toolbox)
+
 ### Executando a aplicação em desenvolvimento
 
 #### Linux
