@@ -45,12 +45,22 @@ Faça o seu docker (client) apontar para o docker (server):
 eval $(docker-machine env default)
 ```
 
-##### Subindo os containers
+#### Subindo os containers
 ```sh
   docker-compose up
 ```
 
-##### Para acessar a aplicação
+##### Modo desacoplado (detached)
+
+```sh
+docker-compose up -d
+```
+Visualizando os logs. Caso não informar nenhuma imagem, ele exibirá os logs de todos os containers
+```sh
+docker-compose [imagem] logs
+```
+
+#### Acessando a aplicação
 - Linux (sem docker-machine)
 ```sh
 echo "127.0.0.1 dev.livreiro.net" | sudo tee -a /etc/hosts > /dev/null
@@ -71,7 +81,7 @@ docker-compose build
 docker-compose up
 ```
 
-### Executando testes
+#### Executando testes
 Quaisquer outras tarefas administrativas como:
   - migrations
   - generators
@@ -82,17 +92,6 @@ Quaisquer outras tarefas administrativas como:
 Também podem ser executadas dessa mesma maneira
 ```sh
 docker-compose run web rake spec
-```
-
-
-#### Modo desacoplado (detached)
-
-```sh
-docker-compose up -d
-```
-Visualizando os logs. Caso não informar nenhuma imagem, ele exibirá os logs de todos os containers
-```sh
-docker-compose [imagem] logs
 ```
 
 Deploy
