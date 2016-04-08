@@ -1,6 +1,11 @@
 language: ruby
 rvm:
   - 2.2
-  - jruby
 bundler_args: --without production
 bundler_args: --binstubs
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database livreiro_test;' -U postgres
