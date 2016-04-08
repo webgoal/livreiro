@@ -21,6 +21,10 @@ Desenvolvimento
 
 #### Linux
 Simplesmente vá para o passo `Subindo os containers`
+- Atente-se para o fato que desta maneira, todos os arquivos que criar ficarão com o owner `root`. Após executar tarefas no container que criam arquivos, sempre execute:
+```sh
+sudo chown -R $USER:$USER .
+```
 
 #### Mac / Windows
 Com o docker-machine, crie uma VM local:
