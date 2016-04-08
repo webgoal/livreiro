@@ -9,3 +9,7 @@ services:
 
 before_script:
   - psql -c 'create database livreiro_test;' -U postgres
+
+addons:
+  code_climate:
+    repo_token: 60f6cd076600fad7cf226d02433f169a55bee9d306717397db531883380f59e0
