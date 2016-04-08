@@ -1,7 +1,7 @@
 livreiro
 ==========
 
-[![Build Status](https://drone.io/github.com/webgoal/livreiro/status.png)](https://drone.io/github.com/webgoal/livreiro/latest)
+[![Build Status](https://travis-ci.org/webgoal/livreiro.svg?branch=master)](https://travis-ci.org/webgoal/livreiro)
 [![Code Climate](https://codeclimate.com/github/webgoal/livreiro/badges/gpa.svg)](https://codeclimate.com/github/webgoal/livreiro)
 [![Test Coverage](https://codeclimate.com/github/webgoal/livreiro/badges/coverage.svg)](https://codeclimate.com/github/webgoal/livreiro/coverage)
 
