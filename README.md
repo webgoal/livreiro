@@ -27,9 +27,23 @@ eval $(docker-machine env default)
 
 ### Executando a aplicação em desenvolvimento
 
+
+##### Subindo os containers
 ```sh
   docker-compose up
 ```
+
+##### Para acessar a aplicação
+- Linux (sem docker-machine)
+```sh
+echo "127.0.0.1 dev.livreiro.net" | sudo tee -a /etc/hosts > /dev/null
+```
+- Mac / Linux com docker-machine
+```sh
+echo "$(docker-machine ip default) dev.livreiro.net" | sudo tee -a /etc/hosts > /dev/null
+```
+- Windows
+Adicione o ip do docker-machine seguido do host `dev.livreiro.net` no arquivo `C:/Windows/System32/drivers/hosts`
 
 ### Instalando novas gems
 
