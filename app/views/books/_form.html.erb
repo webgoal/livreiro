@@ -1,28 +1,42 @@
-<%= form_for(@book) do |f| %>
-  <% if @book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+<%= form_for @book, :html => { :class => "form-horizontal book" } do |f| %>
 
-      <ul>
-      <% @book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @book.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @book.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:title) %>
   </div>
-  <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
+  <div class="form-group">
+    <%= f.label :author, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :author, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:author) %>
   </div>
-  <div class="field">
-    <%= f.label :publisher %><br>
-    <%= f.text_field :publisher %>
+  <div class="form-group">
+    <%= f.label :publisher, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :publisher, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:publisher) %>
   </div>
+<<<<<<< HEAD
   <div class="field">
     <%= f.label :abstract %><br>
     <%= f.text_field :abstract %>
@@ -32,23 +46,54 @@
   <div class="field">
     <%= f.label :owner %><br>
     <%= f.text_field :owner %>
+=======
+  <div class="form-group">
+    <%= f.label :abstract, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :abstract, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:abstract) %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <h2>Owner Information</h2>
+    <%= f.label :owner, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :owner, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:owner) %>
+>>>>>>> 8f45f541934050b6e5adffb69384adda65c525d6
   </div>
-  <hr width="50%" align="left">
+  <div class="form-group">
+    <%= f.label :email, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:email) %>
+  </div>
+  <div class="form-group">
   <h2>Security</h2>
   <h4>To guarantee that only you can edit this information.</h4>
-  <div class="field">
-    <%= f.label :question %><br>
-    <%= f.text_field :question %>
+
+    <%= f.label :question, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :question, :class => 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :answer %><br>
-    <%= f.text_field :answer %>
+
+  <div class="form-group">
+    <%= f.label :answer, :class => 'control-label col-lg-2'%>
+    <div class="col-lg-10">
+      <%= f.text_field :answer, :class => 'form-control' %>
+    </div>
+
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                books_path, :class => 'btn btn-default' %>
+    </div>
   </div>
+
 <% end %>
