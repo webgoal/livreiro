@@ -7,7 +7,6 @@ class CreateBooks < ActiveRecord::Migration
       t.string :owner
       t.string :email
       t.string :abstract
-
       t.timestamps null: false
     end
   end
