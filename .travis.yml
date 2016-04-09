@@ -1,12 +1,7 @@
 language: ruby
-rvm:
-- 2.2
-bundler_args: "--binstubs"
+
 services:
-  - postgresql
   - docker
-before_script:
-  - psql -c 'create database livreiro_test;' -U postgres
 
 addons:
   code_climate:
@@ -22,9 +17,11 @@ after_success:
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
   - export REPO=webgoal/livreiro
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - docker build -f Dockerfile -t $REPO:$COMMIT .
-  - docker tag $REPO:$COMMIT $REPO:$TAG
-  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker tag livreiro_web $REPO:$TAG
+  - docker tag livreiro_web $REPO:travis-$TRAVIS_BUILD_NUMBER
   - docker push $REPO
 
 sudo: required
+
+script:
+  - RAILS_ENV=test docker-compose run web rake db:create spec
