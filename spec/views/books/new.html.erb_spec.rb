@@ -8,7 +8,9 @@ RSpec.describe "books/new", type: :view do
       :publisher => "MyString",
       :owner => "MyString",
       :email => "MyString",
-      :abstract => "MyString"
+      :abstract => "MyString",
+      :question => "MyString",
+      :answer => "MyString"
     ))
   end
 
