@@ -23,6 +23,8 @@
     <%= f.label :publisher %><br>
     <%= f.text_field :publisher %>
   </div>
+  <hr width="50%" align="left">
+  <h2>Owner Information</h2>
   <div class="field">
     <%= f.label :owner %><br>
     <%= f.text_field :owner %>
@@ -31,9 +33,16 @@
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
+  <hr width="50%" align="left">
+  <h2>Security</h2>
+  <h4>To guarantee that only you can edit this information.</h4>
   <div class="field">
-    <%= f.label :abstract %><br>
-    <%= f.text_field :abstract %>
+    <%= f.label :question %><br>
+    <%= f.text_field :question %>
+  </div>
+  <div class="field">
+    <%= f.label :answer %><br>
+    <%= f.text_field :answer %>
   </div>
   <div class="actions">
     <%= f.submit %>
