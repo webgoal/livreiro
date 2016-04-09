@@ -9,4 +9,14 @@ RSpec.describe Book, type: :model do
     end
   end
 
+  describe "search_by_owner" do
+    it "should find a book" do
+      create :book, owner: "bruno"
+      create :book, owner: "eder"
+      create :book, owner: "teste"
+      create :book, owner: "bruno"
+      expect(Book.search_by_owner("bruno").length).to eq 2
+
+    end
+  end
 end
