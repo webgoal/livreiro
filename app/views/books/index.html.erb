@@ -12,8 +12,6 @@
       <th><%= model_class.human_attribute_name(:owner) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:abstract) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -26,10 +24,13 @@
         <td><%= book.owner %></td>
         <td><%= book.email %></td>
         <td><%= book.abstract %></td>
-        <td><%=l book.created_at %></td>
-        <td>
+        <td style="width: 20%;">
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_book_path(book), :class => 'btn btn-default btn-xs' %>
+                      edit_book_path(book), :class => 'btn btn-success btn-xs' %>
+
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      book_path(book), :class => 'btn btn-warning btn-xs' %>
+
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       book_path(book),
                       :method => :delete,

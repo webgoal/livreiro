@@ -16,6 +16,14 @@
   <dd><%= @book.email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:abstract) %>:</strong></dt>
   <dd><%= @book.abstract %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+  <dd><%= @book.created_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lending_name) %>:</strong></dt>
+  <dd><%= @book.lending_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lending_email) %>:</strong></dt>
+  <dd><%= @book.lending_email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lending_data) %>:</strong></dt>
+  <dd><%= @book.lending_data %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
