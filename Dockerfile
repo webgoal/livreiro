@@ -6,3 +6,4 @@ ADD Gemfile /opt/livreiro/Gemfile
 ADD Gemfile.lock /opt/livreiro/Gemfile.lock
 RUN bundle install
 ADD . /opt/livreiro
+RUN RAILS_ENV=production bundle exec rake assets:precompile

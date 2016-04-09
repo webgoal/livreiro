@@ -121,17 +121,12 @@ eval $(docker-machine env docker-atelie)
 #### Atualizar a versão da imagem (E reconstruir a imagem do nginx, caso tenha mudado)
 ```sh
 docker-compose -f docker-compose-production.yml pull
-docker-compose -f docker-compose-production.yml build 
+docker-compose -f docker-compose-production.yml build
 ```
 
 #### Executar as migrations
 ```sh
 docker-compose -f docker-compose-production.yml run web bundle exec rake db:migrate
-```
-
-#### Compilar os assets para produção
-```sh
-docker-compose -f docker-compose-production.yml run web bundle exec rake assets:precompile
 ```
 
 #### Executar a nova versão da aplicação
