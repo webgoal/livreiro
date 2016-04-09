@@ -37,6 +37,14 @@
     <%=f.error_span(:publisher) %>
   </div>
   <div class="form-group">
+    <%= f.label :abstract, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :abstract, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:abstract) %>
+  </div>
+  <div class="form-group">
+    <h2>Owner Information</h2>
     <%= f.label :owner, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :owner, :class => 'form-control' %>
@@ -51,11 +59,21 @@
     <%=f.error_span(:email) %>
   </div>
   <div class="form-group">
-    <%= f.label :abstract, :class => 'control-label col-lg-2' %>
+  <h2>Security</h2>
+  <h4>To guarantee that only you can edit this information.</h4>
+
+    <%= f.label :question, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :abstract, :class => 'form-control' %>
+      <%= f.text_field :question, :class => 'form-control' %>
     </div>
-    <%=f.error_span(:abstract) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :answer, :class => 'control-label col-lg-2'%>
+    <div class="col-lg-10">
+      <%= f.text_field :answer, :class => 'form-control' %>
+    </div>
+
   </div>
 
   <div class="form-group">
