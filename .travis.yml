@@ -3,9 +3,11 @@ rvm:
 - 2.2
 bundler_args: "--binstubs"
 services:
-- postgresql
+  - postgresql
+  - docker
 before_script:
-- psql -c 'create database livreiro_test;' -U postgres
+  - psql -c 'create database livreiro_test;' -U postgres
+
 addons:
   code_climate:
     repo_token: 60f6cd076600fad7cf226d02433f169a55bee9d306717397db531883380f59e0
@@ -24,3 +26,5 @@ after_success:
   - docker tag $REPO:$COMMIT $REPO:$TAG
   - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
   - docker push $REPO
+
+sudo: required

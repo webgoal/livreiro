@@ -2,14 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "books/show", type: :view do
   before(:each) do
-    @book = assign(:book, Book.create!(
-      :title => "Title",
-      :author => "Author",
-      :publisher => "Publisher",
-      :owner => "Owner",
-      :email => "Email",
-      :abstract => "Abstract"
-    ))
+    @book = create(:book)
   end
 
   it "renders attributes in <p>" do
