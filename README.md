@@ -107,12 +107,7 @@ Deploy
 
 ### Para colocar em Produção:
 
-##### Realizar o build da imagem e mandar para o [hub.docker.com](http://hub.docker.com)
-~~~sh
-docker-compose build
-docker tag livreiro_web webgoal/livreiro
-docker push webgoal/livreiro
-~~~
+##### O build da imagem do projeto é feito automaticamente. Basta atualizar a versão da imagem
 
 ##### Fazer nosso docker client apontar para o DOCKER_HOST de produção (Preferencialmente em outra aba...)
 ```sh
@@ -123,9 +118,10 @@ eval $(docker-machine env docker-atelie)
 
 ### Executar os comandos:
 
-#### Atualizar a versão da imagem
+#### Atualizar a versão da imagem (E reconstruir a imagem do nginx, caso tenha mudado)
 ```sh
 docker-compose -f docker-compose-production.yml pull
+docker-compose -f docker-compose-production.yml build 
 ```
 
 #### Executar as migrations
