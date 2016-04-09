@@ -1,15 +1,26 @@
 language: ruby
 rvm:
-  - 2.2
-bundler_args: --without production
-bundler_args: --binstubs
-
+- 2.2
+bundler_args: "--binstubs"
 services:
-  - postgresql
-
+- postgresql
 before_script:
-  - psql -c 'create database livreiro_test;' -U postgres
-
+- psql -c 'create database livreiro_test;' -U postgres
 addons:
   code_climate:
     repo_token: 60f6cd076600fad7cf226d02433f169a55bee9d306717397db531883380f59e0
+env:
+  global:
+  - secure: KlOdZpls51lnIZY8AyF4PsernGzmTjCNawFiImPsIzK+Y1g+RhjoyVJ6AT9WrpygijI3lZTXsIJEEob8o40cl9DtBBTMt8RmVT0AU9ycB3k5te7tRcYmL418sdd0TcmlkSCl+8CdZUWISOCpoBu9ZxEuWXIVjYBzXTtj+wjCK3gDtKBFl9QDnkuI9RzqdHH7n1Fs5MQiH5UkE1tcrnT+8rm4cxKZAh6eWa+MnCaQL2/NjFEBXQeeB/pcM2kfzEGu+JgQsVaVBveRPSiq6djAqNchzAa3bweZ0pJqBm3Av+kia6LZU1ulOONpOM42lqGx7uN4wPuZhaVFKlRTbixUYLW/+0MUTsESJLlTShyTiLHwfI8VbnQOQq8VdNse+k5oJLotmnImzMcrYzcNqpgFvn696t/WQJZ4IWK9BM/dGo5CZrRmAZCWm5AKeHRbv4ik5gmvZnRtaughiqqCwxT9za50zCxg8bGbOHc0r9Kvmxlmz/HEj1wtT2MM6Lq17I7hzkdS+cXtScZJMlUAbEVF9ZCgY8gefv/AMQrDOV2rOdkYnv91/J9pQLuN/h0JGqIqd8b8ZXgIYdlo604EjFPKKidH/dx4BnHkmSma6oT4Tvy508AIPZRprx7PssLuMNoQHJjku+vndcrjNJFbcNS1t7F6Li4/MMY6L/d7q0K+8/U=
+  - secure: YMPrmFFUhh0VMKRlWMLnG3S0WBBwCdquN/gYjIbk/E3ZBUfBuUbJk8OZ9cKbnVO3fiFYy/bkOGwtxdeibrt5490vWA7v8OcKEKn842r+wxAggnJoVM5un9O0bawZ5UejIy5kc/6m+pDvx/R4eVfmByrNxuAt2evAgITfyfMd+rGmfUwz5aucbFRlPZh1EkkndcgJ10KGhQL7gT1vmRHs9x29EigSJ2g4r30dwSZSe2jHbCBZhvOcUwPFrFj/L+t25O/AmtELz/CFnlHCiWa0V9zXzr8qoRtYmO1Ofp7u9QRr7GlG7/2HWuamxt1Wy5iGz0OWd362Dfb1iv7PQxmadBynOem5CpMBqCCM/ulilyYJYArdEWHlYz44CYTlfWDNBijc45NkRpbM/q8joxOIj/LrH5xUT6FJJEWmP/PDYjBnjbg3VhulxrWhNhdUvx8oq9EVsvSaLihHF3tbiwATzfmxEOJw2RRSTbBcTRVxeRFORjbxTueez+UnF+RZug4TIBx09Ku+GIO+4CRhnAdjRjM/PL7E7K7gJNxTuh/QVBtRonn8N6KNl+AQnPP5InGMIGxxh5s3QcCT/GllPM+ySbAQhw811PdT/X2dFZXpJzKlMeiuFk1k4R3Tj/mOvXJeUmQfxy7ZmLqNLBdL0VMeq6Hxjc7VkI8hGyoTApluRPU=
+  - secure: BSbJ4Z/nj9PuDceAqReHzN2g4EFYCXdy+MfFKXsd269V2Wmtp5JxnKUTuSAuHvsZB8NNPEHKJNhyZ51ZFC8SnCJtnNxotg0L3fXzsVywl1MNW01jvnRuF5XAwNJJgAhLH2RpwZS1wlNf3xEoOE5RWHt2n0K6PfZ4cRST0h58t1HO8f13jb3ZL+M7GbkTk7OLxAzX9MxaZloYiaYWLVuq84dxE6rHj3641GyC0n0dJekncqamn9ZVpDrJLFJrqKG9N6yrq7f7Uxxh0AGsF0yTWrMXDaeYf5gajIILkwB+yAjzR0bfQjOeffjBKh9bmUBJBR979dwBOvIAdBTpreZsHBeqz5MJT4vrgd/El7PTJFntOL3rWYz1okyQTQZbUAKPQ7Psnu+MOho6mzwUtjNlyMCgkVCJjW+gKA2PzbT4Ri0xGLFV+/xJJYbBTpcPi757xn8aQundOA1RqSZeF1VeYmcK+kQh2MRA+E0wP/uhezT3ltAnG5HNjjRU2cbrmvvP1IaZeRfqhsf1/T56DVre/vZuCX1YFBc3PQWyvHtOMI2F1M30lmrnBs68UUV6dHqZgpjkPqgjTYznCBQVld9CPN2zZGfH4JivOvGCBwLi/dSmHvwvFCFzQroT3tZ2qH8yOuwQNOMdLEypVjGxYS+j74mwYzGbZIZlilHIiYKpYyo=
+  - COMMIT=${TRAVIS_COMMIT::8}
+
+after_success:
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  - export REPO=sebestblog/travis-demo
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $REPO
