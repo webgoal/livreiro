@@ -71,14 +71,14 @@
 <div class="form-group">
     <%= f.label :question, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.label:question, :class => 'control-label' %>
+      <%= f.text_field :question, :class => 'form-control disabled', :disabled => 'disabled' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :answer, :class => 'control-label col-lg-2'%>
     <div class="col-lg-10">
-      <%= f.text_field :answer, :class => 'form-control' %>
+      <%= f.text_field :answer, :class => 'form-control', :value => '' %>
     </div>
 
   </div>
