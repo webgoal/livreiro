@@ -5,4 +5,6 @@ class Book < ActiveRecord::Base
   validates :owner, presence: true, length: {minimum: 3, maximum: 50}
   validates :email, presence: true, length: {minimum: 3, maximum: 100}
   validates :abstract,  length: {minimum: 10, maximum: 500}
+  validates :question,  length: {minimum: 10, maximum: 50}
+  validates :answer,  length: {minimum: 10, maximum: 50}
 end
