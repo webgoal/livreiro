@@ -43,7 +43,19 @@ RSpec.describe Book, type: :model do
       create :book, email: "bruno@eder.com"
       create :book, email: "guilherne@eder.com"
       expect(Book.search_by_email("eder").length).to eq 3
-      
+
+    end
+  end
+
+  describe "book_has_commentary" do
+    it "should find a book`s commentaries" do
+      create :book, email: "bruno@bruno.com.br"
+      create :book, email: "eder@eder.com"
+      create :book, email: "guilherme@guilherme.com.br"
+      create :book, email: "bruno@eder.com"
+      create :book, email: "guilherne@eder.com"
+      expect(Book.search_by_email("eder").length).to eq 3
+
     end
   end
 end

@@ -13,6 +13,7 @@ class Book < ActiveRecord::Base
   validates :question, presence: true, length: { minimum:3  }
   validates :answer, presence: true, length: { minimum:3  }, on: :create
   validate  :validate_password, on: :update
+  has_many :commentaries
 
   def validate_password
     if answer_was != answer

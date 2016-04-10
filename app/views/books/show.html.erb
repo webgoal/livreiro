@@ -26,6 +26,10 @@
   <dd><%= @book.lending_data %></dd>
 </dl>
 
+<div class="page-header">
+  <h2>Commentaries</h2>
+</div>
+
 <%= link_to t('.back', :default => t("helpers.links.back")),
               books_path, :class => 'btn btn-default'  %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
