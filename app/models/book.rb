@@ -14,4 +14,8 @@ class Book < ActiveRecord::Base
       errors.add(:answer, "Senha incorreta!")
     end
   end
+
+  def self.search_by_owner(ownerName)
+    Book.where(owner:ownerName)
+  end
 end
