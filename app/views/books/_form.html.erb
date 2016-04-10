@@ -69,6 +69,7 @@
   <div class="col-lg-10">
     <%= f.text_field :question, :class => 'form-control' , :disabled => @book.persisted? %>
   </div>
+  <%=f.error_span(:question) %>
 </div>
 
 
@@ -77,6 +78,7 @@
   <div class="col-lg-10">
     <%= f.password_field :answer, :class => 'form-control' %>
   </div>
+  <%=f.error_span(:answer) %>
 </div>
 
 <div class="page-header">
@@ -87,18 +89,21 @@
   <div class="col-lg-10">
     <%= f.text_field :lending_name, :class => 'form-control' %>
   </div>
+  <%=f.error_span(:lending_name) %>
 </div>
 <div class="form-group">
   <%= f.label :lending_email, :class => 'control-label col-lg-2'%>
   <div class="col-lg-10">
     <%= f.text_field :lending_email, :class => 'form-control' %>
   </div>
+    <%=f.error_span(:lending_email) %>
 </div>
 <div class="form-group">
   <%= f.label :lending_data, :class => 'control-label col-lg-2'%>
   <div class="col-lg-10">
     <%= f.text_field :lending_data, :class => 'form-control' %>
   </div>
+  <%=f.error_span(:lending_data) %>
 </div>
 
 <div class="form-group">
