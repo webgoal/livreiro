@@ -18,4 +18,9 @@ class Book < ActiveRecord::Base
   def self.search_by_owner(ownerName)
     Book.where(owner:ownerName)
   end
+
+  def self.search_by_title(bookName)
+    search_book = "%#{bookName}%"
+    Book.where("title LIKE ?", search_book)
+  end
 end
