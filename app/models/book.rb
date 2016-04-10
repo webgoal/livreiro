@@ -5,9 +5,9 @@ class Book < ActiveRecord::Base
   validates :owner, presence: true, length: { minimum:3  }
   validates :email, presence: true, length: { minimum:3  }
 
-  validates :lending_name, presence: true, length: { minimum:3  }
-  validates :lending_email, presence: true, length: { minimum:3  }
-  validates :lending_data, presence: true
+  validate :validate_lending_name
+  validate :validate_lending_email
+  validate :validate_lending_data
 
   validates :abstract,  length: {minimum: 10}
   validates :question, presence: true, length: { minimum:3  }
@@ -35,4 +35,23 @@ class Book < ActiveRecord::Base
     search_email = "%#{paramEmail}%"
     Book.where("email LIKE ?", search_email)
   end
+
+  def validate_lending_name
+    if  lending_name.blank? && !(lending_email.blank? || lending_data.blank?)
+      errors.add(:lending_name, "Preencha o campo de nome!")
+    end
+  end
+
+  def validate_lending_email
+    if  lending_email.blank? && !(lending_name.blank? || lending_data.blank?)
+        errors.add(:lending_email, "Preencha o campo de email!")
+    end
+  end
+
+  def validate_lending_data
+    if  lending_data.blank? && !(lending_name.blank? || lending_email.blank?)
+        errors.add(:lending_data, "Preencha o campo de data!")
+    end
+  end
+
 end
