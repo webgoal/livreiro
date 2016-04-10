@@ -19,4 +19,19 @@ class Book < ActiveRecord::Base
       errors.add(:answer, "Senha incorreta!")
     end
   end
+
+  def self.search_by_owner(ownerName)
+    search_owner = "%#{ownerName}%"
+    Book.where("owner LIKE ?", search_owner)
+  end
+
+  def self.search_by_title(bookName)
+    search_title = "%#{bookName}%"
+    Book.where("title LIKE ?", search_title)
+  end
+
+  def self.search_by_email(paramEmail)
+    search_email = "%#{paramEmail}%"
+    Book.where("email LIKE ?", search_email)
+  end
 end

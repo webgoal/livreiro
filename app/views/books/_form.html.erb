@@ -67,7 +67,7 @@
 <div class="form-group">
   <%= f.label :question, :class => 'control-label col-lg-2' %>
   <div class="col-lg-10">
-    <%= f.text_field :question, :class => 'form-control' , :disabled => 'disabled'%>
+    <%= f.text_field :question, :class => 'form-control' , :disabled => @book.persisted? %>
   </div>
 </div>
 
