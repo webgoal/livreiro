@@ -10,7 +10,7 @@ RSpec.describe Book, type: :model do
   end
 
   describe "search_by_owner" do
-    it "should find a book" do
+    it "should find a book by owner" do
       create :book, owner: "bruno"
       create :book, owner: "eder"
       create :book, owner: "teste"
@@ -21,7 +21,7 @@ RSpec.describe Book, type: :model do
   end
 
   describe "search_by_title" do
-    it "should find a book" do
+    it "should find a book by title" do
       create :book, title: "Harry Potter"
       create :book, title: "Livro das Zueiras"
       create :book, title: "Game of Thrones"
@@ -32,6 +32,18 @@ RSpec.describe Book, type: :model do
       create :book, title: "Pokemon"
       expect(Book.search_by_title("Harry").length).to eq 5
 
+    end
+  end
+
+  describe "search_by_email" do
+    it "should find a book by email" do
+      create :book, email: "bruno@bruno.com.br"
+      create :book, email: "eder@eder.com"
+      create :book, email: "guilherme@guilherme.com.br"
+      create :book, email: "bruno@eder.com"
+      create :book, email: "guilherne@eder.com"
+      expect(Book.search_by_email("eder").length).to eq 3
+      
     end
   end
 end
