@@ -11,7 +11,7 @@ class Book < ActiveRecord::Base
 
   validates :abstract,  length: {minimum: 10}
   validates :question, presence: true, length: { minimum:3  }
-  validates :answer, presence: true, length: { minimum:3  }
+  validates :answer, presence: true, length: { minimum:3  }, on: :create
   validate  :validate_password, on: :update
 
   def validate_password
