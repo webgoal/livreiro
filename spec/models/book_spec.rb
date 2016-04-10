@@ -1,10 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
+
   describe "validate_password" do
     it "should match password in the DB" do
       book = create :book, answer: "teste123"
       book.answer = 'teste1234'
+      expect(book.valid?).to be false
+    end
+  end
+
+  describe "validate_lending_name" do
+    it "should lending name be not empty" do
+      book = Book.new(attributes_for(:book, lending_name: "", lending_email: "abc@edf.com", lending_data:"01/01/2016"))
+      expect(book.valid?).to be false
+    end
+  end
+
+  describe "validate_lending_email" do
+    it "should lending email be not empty" do
+      book = Book.new(attributes_for(:book, lending_name: "bruno", lending_email: "", lending_data:"01/01/2016"))
+      expect(book.valid?).to be false
+    end
+  end
+
+  describe "validate_lending_data" do
+    it "should lending data be not empty" do
+      book = Book.new(attributes_for(:book, lending_name: "bruno", lending_email: "abc@edf.com", lending_data:""))
       expect(book.valid?).to be false
     end
   end
@@ -43,7 +65,7 @@ RSpec.describe Book, type: :model do
       create :book, email: "bruno@eder.com"
       create :book, email: "guilherne@eder.com"
       expect(Book.search_by_email("eder").length).to eq 3
-      
+
     end
   end
 end
