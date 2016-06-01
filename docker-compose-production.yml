@@ -18,7 +18,5 @@ services:
     env_file: .env.production
     volumes:
       - /opt/livreiro/public/assets
-    volumes_from:
-      - assets
     depends_on:
       - db
