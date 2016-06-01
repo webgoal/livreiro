@@ -5,6 +5,13 @@ upstream rails {
 server {
   listen 80;
   server_name livreiro.atelie.software;
+  root /opt/livreiro/public;
+
+  location ~ "^/assets/.+-[0-9a-f]{32}.*" {
+    gzip_static on;
+    expires     max;
+    add_header  Cache-Control public;
+  }
 
   location / {
     autoindex on;

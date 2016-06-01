@@ -5,6 +5,8 @@ services:
     restart: always
     ports:
       - 80:80
+    volumes_from:
+      - web
     depends_on:
       - web
   db:
@@ -14,5 +16,9 @@ services:
     image: webgoal/livreiro
     command: bundle exec unicorn_rails -c config/unicorn.rb
     env_file: .env.production
+    volumes:
+      - /opt/livreiro/public/assets
+    volumes_from:
+      - assets
     depends_on:
       - db
